@@ -1,0 +1,34 @@
+reporte 1
+/*Un reporte que muestre el numero de estudiantes matriculados en las secciones matutinas y vespertina */
+
+select seccion, count(seccion) from materia  where seccion like '%m%'
+group by seccion
+union
+select seccion, count(seccion) from materia  where  seccion like '%v%'
+group by seccion
+
+
+
+
+reporte 2
+/* numero de estudiantes que tiene la misma arma*/
+
+select nombre_arma, count(nombre) AS numeroArma from arma join estudiante on estudiante.id_arma = arma.id_arma
+where nombre_arma like '%S%'
+group by nombre_arma
+union
+select nombre_arma, count(nombre) AS numeroArma from arma join estudiante on estudiante.id_arma = arma.id_arma
+where nombre_arma like '%p%'
+group by nombre_arma
+union
+select nombre_arma, count(nombre) AS numeroArma from arma join estudiante on estudiante.id_arma = arma.id_arma
+where nombre_arma like '%g%'
+group by nombre_arma
+union
+select nombre_arma, count(nombre) AS numeroArma from arma join estudiante on estudiante.id_arma = arma.id_arma
+where nombre_arma like '%r%'
+group by nombre_arma
+union
+select nombre_arma, count(nombre) AS numeroArma from arma join estudiante on estudiante.id_arma = arma.id_arma
+where nombre_arma like '%m%'
+group by nombre_arma
